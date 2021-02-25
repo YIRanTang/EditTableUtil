@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html style="height: 100%;width:100%" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+    <title>表格插件</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="StringUtil.js"></script>
+    <script type="text/javascript" src="Tag.js"></script>
+    <script type="text/javascript" src="exceltable.js"></script>
+	<link rel="stylesheet" type="text/css" href="exceltable.css"/>
+    <style>
+        .main-table{width: 100%;border-collapse: collapse;margin: 10px 2px;}
+        .main-table td,th{border:0.5px solid #678;padding: 4px;margin: 0}
+        .use-code{border: 3px solid #0e0e0e;padding: 2px;line-height: 24px;background-color: #666;color:white;font-size: 16px}
+    </style>
+</head>
+<body>
+    <div id="table" class="full">
+    </div>
+    <script>
+        var list =[
+            {
+                "2016-12-31":{
+                    readonly:true,
+                    val:1
+                },
+                "2017-12-31":{
+                    readonly:true,
+                    val:2
+                },
+                "2018-12-31":{
+                    readonly:true,
+                    val:3
+                },
+                "2019-12-31":{
+                    readonly:true,
+                    val:4
+                },
+                "2020-12-31":{
+                    readonly:true,
+                    val:5
+                },
+                "2021-12-31":{
+                    readonly:true,
+                    val:6
+                },
+                "2022-12-31":{
+                    readonly:true,
+                    val:7
+                },
+                "2023-12-31":{
+                    readonly:true,
+                    val:8
+                }
+            },{
+                "2016-12-31":{
+                    readonly:true,
+                    val:9
+                },
+                "2017-12-31":{
+                    readonly:true,
+                    val:10
+                },
+                "2018-12-31":{
+                    readonly:true,
+                    val:11
+                },
+                "2019-12-31":{
+                    readonly:true,
+                    val:12
+                },
+                "2020-12-31":{
+                    readonly:true,
+                    val:13
+                },
+                "2021-12-31":{
+                    readonly:false,
+                    val:14
+                },
+                "2022-12-31":{
+                    readonly:false,
+                    val:15,
+                    onchang: function(){
+                        var _this = $(this);
+                        console.log("15:",_this.val());
+                    }
+                },
+                "2023-12-31":{
+                    readonly:false,
+                    val:16,
+                    onchang: function(){
+                        var _this = $(this);
+                        console.log("16:",_this.val());
+                    }
+                }
+            }          
+        ];
+
+        var obj = $("#table").initExcelTable({
+            //是否显示列头
+            showHeader:true,
+            columns: [
+                {
+                    header:{text:"2016-12-31",css:{'font-weight':'bold'}},
+                    fieldName:'2016-12-31',
+                    type:"input",
+                    width:200,
+                    cellStyle:{align:'center'},
+                    css:{background: '#cff'}
+                },{
+                    header:{text:"2017-12-31",css:{'font-weight':'bold'}},
+                    fieldName:'2017-12-31',
+                    type:"input",width:200,
+                    cellStyle:{align:'center'},css:{background: '#cff'}
+                },{
+                    header:{text:"2018-12-31",css:{'font-weight':'bold'}},
+                    fieldName:'2018-12-31',
+                    type:"input",width:200,
+                    cellStyle:{align:'center'},css:{background: '#cff'}
+                },{
+                    header:{text:"2019-12-31",css:{'font-weight':'bold'}},
+                    fieldName:'2019-12-31',
+                    type:"input",width:200,
+                    cellStyle:{align:'center'},css:{background: '#cff'}
+                },{
+                    header:{text:"2020-12-31",css:{'font-weight':'bold'}},
+                    fieldName:'2020-12-31',
+                    type:"input",width:200,
+                    cellStyle:{align:'center'},css:{background: '#cff'}
+                },{
+                    header:{text:"2021-12-31",css:{'font-weight':'bold'}},
+                    fieldName:'2021-12-31',
+                    type:"input",width:200,
+                    cellStyle:{align:'center'},css:{background: '#cff'}
+                },{
+                    header:{text:"2022-12-31",css:{'font-weight':'bold'}},
+                    fieldName:'2022-12-31',
+                    type:"input",width:200,
+                    cellStyle:{align:'center'},css:{background: '#cff'}
+                },{
+                    header:{text:"2023-12-31",css:{'font-weight':'bold'}},
+                    fieldName:'2023-12-31',
+                    type:"input",width:200,
+                    cellStyle:{align:'center'},css:{background: '#cff'}
+                }
+            ],
+            row: 1
+        });
+        obj.setData(list);
+    </script>
+</body>
